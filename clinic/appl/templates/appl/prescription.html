@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="." method="post">
+{% csrf_token %}
+{{ form_prescription.as_p }}
+<input type="submit" value="dodaj receptę"/>
+</form>
+{% if messages %}
+{% for massage in messages %}
+<p style="background: yellow">{{massage}}</p>
+{% endfor %}
+{% endif %}
+</body>
+</html>

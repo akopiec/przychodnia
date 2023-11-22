@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    table{border:1px solid black}
+    td{border:1px solid black}
+</style>
+</head>
+<body>
+<h1>Jesteś na koncie doktora jako użytkownik {{doctor_username}}</h1>
+<table>
+    {% for visit in visit_of_doctor %}
+    {% if visit.day == 1 and visit.hour_from == 1 %}<tr><td>Poniedziałek <br/> 10-11</td><td><a href="/appl/prescription/{{visit.id}}">dodaj receptę</a><p>{{visit.patient.username}}</p></td></tr> {% endif %}
+    {% if visit.day == 1 and visit.hour_from == 2 %}<tr><td>Poniedziałek <br/> 11-12</td><td><a href="/appl/prescription/{{visit.id}}">dodaj reeptę</a><p>{{visit.patient.username}}</p> </td></tr>{% endif %}
+    {% if visit.day == 1 and visit.hour_from == 3 %}<tr><td>Poniedziałek <br/> 12-13</td><td><a href="/appl/prescription/{{visit.id}}">dodaj receptę</a><p>{{visit.patient.username}}</p> </td></tr>{% endif %}
+    {% endfor %}
+</table>
+</body>
+</html>

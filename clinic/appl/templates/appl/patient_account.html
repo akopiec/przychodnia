@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+</style>
+</head>
+<body>
+<h1>Jesteś na koncie pacjenta jako użytkownik {{patient_username}}</h1>
+{% for visit in visit_of_patient %}
+{% for prescription in prescription %}
+{% if visit.doctor.username == prescription.doctor.username %}
+<p>Masz wizytę u doktora {{visit.doctor.username}} w {{visit.day}} o godzinie {{visit.hour_from}}</p>
+<p>leki to {{prescription.medicines}} a dawkowanie to {{prescription.description}}</p>
+{% endif %}
+{% endfor %}
+{% endfor %}
+<p></p>
+</body>
+</html>

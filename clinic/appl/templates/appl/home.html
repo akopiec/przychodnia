@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Witamy w przychodni</h1>
+<p>na stronie mozesz się zarejestrować, sprawdzić terminy wizyt, a także znaleźć receptę</p>
+<form action="." method="post">
+    {{home_form.as_p}}
+    {% csrf_token %}
+    <input type="submit" value="wejdz w konto pacjenta lub doktora"/>
+</form>
+
+<p>Mozesz sie zalogowac <a href="{% url 'login' %}">Zaloguj</a> </p>
+{% if messages %}
+{% for message in messages %}
+<p style="background: yellow">{{message}}</p>
+{% endfor %}
+{% endif %}
+<p><a href="{% url 'add_visit' %}">dodaj wizytę</a> </p>
+<p>wyloguj</p><p><a href="{% url 'logout' %}">wyloguj</a></p>
+<p><a href="register/">zarejestruj</a> </p>
+</body>
+</html>

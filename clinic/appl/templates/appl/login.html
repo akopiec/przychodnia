@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Logowanie</h1>
+<form action="{% url 'login' %}" method="post">{{form.as_p}}{%csrf_token%}
+<input type="hidden" name="next" value="login"/>
+  <p>  <input type="submit" value="zaloguj"/><p>
+</form>
+{% if messages %}
+{% for massage in messages %}
+<p style="background: yellow">{{massage}}</p>
+{% endfor %}
+{% endif %}
+</body>
+</html>
